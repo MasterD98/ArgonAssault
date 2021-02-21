@@ -8,4 +8,8 @@ public class MusicPlayer : MonoBehaviour
     {
         DontDestroyOnLoad(gameObject);
     }
+    void OnCollisionEnter(Collision collision)
+    {
+        print("hit");
+    }
 }

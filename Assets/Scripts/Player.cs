@@ -27,6 +27,10 @@ public class Player : MonoBehaviour
         ProcessTranslation();
         ProcessRotation();
     }
+    void OnTriggerEnter(Collider other)
+    {
+        print("Player Hit Something");
+    }
 
     private void ProcessRotation()
     {
