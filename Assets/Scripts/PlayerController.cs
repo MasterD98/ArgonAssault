@@ -6,6 +6,7 @@ using UnityStandardAssets.CrossPlatformInput;
 
 public class PlayerController : MonoBehaviour
 {
+    // TODO work-out why sometime ship went too speed
     [Header("General")]
     [Tooltip("ms^-1")][SerializeField]float controlSpeed = 20f;
     [Tooltip("m")] [SerializeField] float xRange = 5f;
@@ -19,6 +20,7 @@ public class PlayerController : MonoBehaviour
     float yThrow;
     float xThrow;
     bool isControlsEnable = true;
+    
     // Start is called before the first frame update
     void Start()
     {        
