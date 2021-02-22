@@ -8,17 +8,6 @@ public class CollisionHandler : MonoBehaviour
 {
     [Tooltip("FX prefab")][SerializeField] GameObject deathFX;
     [Tooltip("in sec")][SerializeField] float LevelLoadDelay=1f;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
     void OnTriggerEnter(Collider other)
     {
         deathFX.SetActive(true);
