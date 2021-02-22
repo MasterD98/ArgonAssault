@@ -4,17 +4,21 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityStandardAssets.CrossPlatformInput;
 
-public class Player : MonoBehaviour
+public class PlayerController : MonoBehaviour
 {
-    [Tooltip("ms^-1")][SerializeField]float speed = 20f;
+    [Header("General")]
+    [Tooltip("ms^-1")][SerializeField]float controlSpeed = 20f;
     [Tooltip("m")] [SerializeField] float xRange = 5f;
     [Tooltip("m")] [SerializeField] float yRange = 3f;
+    [Header("Screen-Position Based")]
     [SerializeField] float positionPitchFactor = -5f;
     [SerializeField] float positionYawFactor = 5f;
+    [Header("Controller-Throw Based")]
     [SerializeField] float controllerPitchFactor = -5f;
     [SerializeField] float controllerRollFactor = -20f;
     float yThrow;
     float xThrow;
+    bool isControlsEnable = true;
     // Start is called before the first frame update
     void Start()
     {        
@@ -24,12 +28,10 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        ProcessTranslation();
-        ProcessRotation();
-    }
-    void OnTriggerEnter(Collider other)
-    {
-        print("Player Hit Something");
+        if (isControlsEnable) {
+            ProcessTranslation();
+            ProcessRotation();
+        }
     }
 
     private void ProcessRotation()
@@ -50,8 +52,8 @@ public class Player : MonoBehaviour
         xThrow = CrossPlatformInputManager.GetAxis("Horizontal");
         yThrow = CrossPlatformInputManager.GetAxis("Vertical");
 
-        float xOffset = xThrow * Time.deltaTime * speed;
-        float yOffset = yThrow * Time.deltaTime * speed;
+        float xOffset = xThrow * Time.deltaTime * controlSpeed;
+        float yOffset = yThrow * Time.deltaTime * controlSpeed;
 
         float rawXPos = transform.localPosition.x + xOffset;
         float clampedXPos = Mathf.Clamp(rawXPos, -xRange, xRange);
@@ -59,5 +61,8 @@ public class Player : MonoBehaviour
         float clampedYPos = Mathf.Clamp(rawYPos, -yRange, yRange);
 
         transform.localPosition = new Vector3(clampedXPos, clampedYPos, transform.localPosition.z);
+    }
+    void OnPlayerDeath() {//called by string reference
+        isControlsEnable = false;
     }
 }
