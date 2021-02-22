@@ -177,6 +177,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parent: {fileID: 2108070557}
   deathFX: {fileID: 6479122514044031303, guid: db750dc0c152c86448a881c7b67e54e7, type: 3}
+  scorePerHit: 12
 --- !u!1 &100073776
 GameObject:
   m_ObjectHideFlags: 0
@@ -228,6 +229,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parent: {fileID: 2108070557}
   deathFX: {fileID: 6479122514044031303, guid: db750dc0c152c86448a881c7b67e54e7, type: 3}
+  scorePerHit: 12
 --- !u!4 &389381177 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4990607877152018, guid: 6d7afa73fcb1fce4cb4b65361a29bcbd,
@@ -388,7 +390,7 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 8
     m_MaxSize: 80
-    m_Alignment: 4
+    m_Alignment: 3
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
@@ -417,7 +419,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c05a185632481874daa2dadeda04cf20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scorePerHit: 12
 --- !u!108 &705507994 stripped
 Light:
   m_CorrespondingSourceObject: {fileID: 2960012680989835670, guid: 11b0a02614efd794ba71c49459b255eb,
@@ -910,6 +911,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parent: {fileID: 2108070557}
   deathFX: {fileID: 6479122514044031303, guid: db750dc0c152c86448a881c7b67e54e7, type: 3}
+  scorePerHit: 12
 --- !u!4 &1412814719 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4354848751893472, guid: bf374732b0ea2c34daa340dc2de7f746,
@@ -936,6 +938,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parent: {fileID: 2108070557}
   deathFX: {fileID: 6479122514044031303, guid: db750dc0c152c86448a881c7b67e54e7, type: 3}
+  scorePerHit: 12
 --- !u!1 &1619503387 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1074994750746910, guid: 6d7afa73fcb1fce4cb4b65361a29bcbd,
@@ -956,6 +959,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parent: {fileID: 2108070557}
   deathFX: {fileID: 6479122514044031303, guid: db750dc0c152c86448a881c7b67e54e7, type: 3}
+  scorePerHit: 12
+--- !u!1 &1666268783 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1151666876253034432, guid: 0ce1dffbaa3410f4a9e19bbeac20b065,
+    type: 3}
+  m_PrefabInstance: {fileID: 8043975114853805577}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1753365303
 GameObject:
   m_ObjectHideFlags: 0
@@ -1146,6 +1156,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parent: {fileID: 2108070557}
   deathFX: {fileID: 6479122514044031303, guid: db750dc0c152c86448a881c7b67e54e7, type: 3}
+  scorePerHit: 12
 --- !u!1001 &2016650146
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1360,6 +1371,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2075318973 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8043975115537959262, guid: 0ce1dffbaa3410f4a9e19bbeac20b065,
+    type: 3}
+  m_PrefabInstance: {fileID: 8043975114853805577}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2108070556
 GameObject:
   m_ObjectHideFlags: 0
@@ -1628,7 +1645,12 @@ PrefabInstance:
     - target: {fileID: 1151666876253034432, guid: 0ce1dffbaa3410f4a9e19bbeac20b065,
         type: 3}
       propertyPath: m_Name
-      value: Bullets Right
+      value: Gun Right
+      objectReference: {fileID: 0}
+    - target: {fileID: 1151666876253034432, guid: 0ce1dffbaa3410f4a9e19bbeac20b065,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1151666876253034445, guid: 0ce1dffbaa3410f4a9e19bbeac20b065,
         type: 3}
@@ -1728,8 +1750,28 @@ PrefabInstance:
     - target: {fileID: 8043975115537959262, guid: 0ce1dffbaa3410f4a9e19bbeac20b065,
         type: 3}
       propertyPath: m_Name
-      value: Bullets Left
+      value: Gun Left
       objectReference: {fileID: 0}
+    - target: {fileID: 8043975115537959262, guid: 0ce1dffbaa3410f4a9e19bbeac20b065,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8043975116112655429, guid: 0ce1dffbaa3410f4a9e19bbeac20b065,
+        type: 3}
+      propertyPath: guns.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8043975116112655429, guid: 0ce1dffbaa3410f4a9e19bbeac20b065,
+        type: 3}
+      propertyPath: guns.Array.data[0]
+      value: 
+      objectReference: {fileID: 2075318973}
+    - target: {fileID: 8043975116112655429, guid: 0ce1dffbaa3410f4a9e19bbeac20b065,
+        type: 3}
+      propertyPath: guns.Array.data[1]
+      value: 
+      objectReference: {fileID: 1666268783}
     - target: {fileID: 8043975116112655448, guid: 0ce1dffbaa3410f4a9e19bbeac20b065,
         type: 3}
       propertyPath: deathFX
