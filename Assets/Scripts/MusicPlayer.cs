@@ -6,10 +6,12 @@ public class MusicPlayer : MonoBehaviour
 {
     void Awake()
     {
-        DontDestroyOnLoad(gameObject);
-    }
-    void OnCollisionEnter(Collision collision)
-    {
-        print("hit");
+        if (FindObjectsOfType<MusicPlayer>().Length > 1) {
+            Destroy(gameObject);
+        }
+        else {
+            DontDestroyOnLoad(gameObject);
+        }
+        
     }
 }
