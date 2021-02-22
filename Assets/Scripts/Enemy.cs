@@ -7,14 +7,15 @@ public class Enemy : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        AddBoxCollider();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void AddBoxCollider()
     {
-        
+        BoxCollider boxCollider = gameObject.AddComponent<BoxCollider>();
+        boxCollider.isTrigger = false;
     }
+
     private void OnParticleCollision(GameObject other)
     {
         Destroy(gameObject);
